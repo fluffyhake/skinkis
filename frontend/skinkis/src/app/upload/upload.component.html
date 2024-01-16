@@ -1,0 +1,29 @@
+
+
+
+
+<div class="main-div">
+    <mat-card class="card" >
+        <mat-card-header>
+          <mat-card-title>FLAKSE PHOTO SERVICE</mat-card-title>
+          <mat-card-subtitle>.jpg, .jpeg, .png</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image>
+        <mat-card-content>
+        <h3>Press upload to upload a new image</h3>
+        <div class="innerDiv" *ngIf="!upload">
+            <input #upload hidden="true" type="file" onclick="this.value=null" (change)="uploadChanged($event)" accept=".png, .jpg, .jpeg "/>
+            <button mat-button style="height:100%" (click)="upload.click()">Upload</button>
+        </div>
+        <div class="innerDiv" *ngIf="upload">
+            <img class="preview" [src]="upload" alt="">
+        </div>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button warning *ngIf="upload" (click)="removeUpload()">Clear</button>
+            <button mat-button *ngIf="upload" (click)="saveUpload">Save</button>
+        </mat-card-actions>
+      </mat-card>
+      
+</div>

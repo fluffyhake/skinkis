@@ -1,0 +1,80 @@
+.main-div{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// .card {
+//     max-width: 100vh;
+//     min-width: 70vh;
+//     max-height: 100vh;
+//     min-height: 70vh;
+//   }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+//   .card::before {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     right: -10%; /* Set a negative margin to extend beyond the right side */
+//     bottom: 0;
+//     width: 10%; /* Adjust the width as needed */
+//     background-image: url('../../assets/bildeAvSkinkis.png');
+//     background-size: cover;
+//     z-index: -1;
+//     transform: rotate(90deg);
+// }
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    right: -55%; /* Set a percentage margin to extend beyond the right side */
+    bottom: 10%;
+    width: 60%; /* Set a percentage width relative to the .card */
+    background-image: url('../../assets/bildeAvSkinkis.png');
+    background-size: cover;
+    z-index: -1;
+    transform: rotate(90deg);
+}
+.innerDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30vh;
+    width: 60vh;                        /*  changed  */
+    border: 3px solid black;
+    box-sizing: border-box;       
+}
+
+.mat-card{
+  height: 70vh;
+  display:flex;
+  flex-direction: column;
+
+}
+
+.mat-card-header {
+  flex-shrink: 0;
+}
+
+.mat-card-content{
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.centerP{
+    text-align: center;
+    vertical-align: middle;
+}
+.preview{
+  max-width:100%;
+  max-height:100%;
+  object-fit: contain
+
+}
