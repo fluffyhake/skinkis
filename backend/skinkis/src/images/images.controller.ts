@@ -21,7 +21,7 @@ export const saveImage = async (req: Request, res: Response) =>{
 
 export const getImage = async (req: Request, res: Response) =>{
     try {
-        
+        // Get a specific image here
     } catch (error) {
         return res.status(500).json({ error: 'Internal Server Error' });
     }
