@@ -49,6 +49,14 @@ export class UploadComponent {
       reader.readAsDataURL(image);
    }
   }
+  goAgain(){
+    this._saved = false
+    this._savedUrl = ""
+    this._previewed = false
+    this._upload = undefined
+    this._blob = new Blob
+
+  }
 
   saveUpload(){
       let formData = new FormData();
