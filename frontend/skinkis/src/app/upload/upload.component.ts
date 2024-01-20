@@ -64,6 +64,7 @@ export class UploadComponent {
           let creationStatus = response['creationStatus']
           if(creationStatus.saved = true){
             this._saved = true
+            // TODO read from env! 
             this._savedUrl = "http://localhost:8080/" + creationStatus[this._uploadName].image.imagePath
           }
         
