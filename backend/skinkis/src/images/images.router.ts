@@ -8,7 +8,7 @@ const router = express.Router()
 
 router.get("/:id", getImage)
 
-router.post("/upload", upload.array('images',5), saveImage)
+router.post("/", upload.array('images',5), saveImage)
 
 
 export const imagesRouter = router

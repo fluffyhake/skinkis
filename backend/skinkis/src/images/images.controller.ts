@@ -7,6 +7,7 @@ export const saveImage = async (req: Request, res: Response) =>{
         // console.log(req)
         if(req.files){
             const files = req.files as Express.Multer.File[] ;
+            console.log(req.files)
             const creationStatus = await saveImageToDB(files)
             return res.status(200).json({creationStatus: creationStatus})
 
