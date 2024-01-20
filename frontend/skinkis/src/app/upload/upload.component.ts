@@ -63,6 +63,7 @@ export class UploadComponent {
       formData.append('images', this._blob);
       console.log(formData)
       // TODO fix return type!!! Look at IReturnImage
+      // TODO read http path from uri
       return this.http.post<any>("http://localhost:8080/upload", formData)
       .pipe(
         catchError(this.handleError)
