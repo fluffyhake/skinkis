@@ -20,11 +20,14 @@ export class UploadComponent {
   }
   private _previewed: boolean = true
   private _upload: any
-  private _uploadRef: string = ""
+  private _uploadName: string = ""
   private _blob: Blob = new Blob
+  private _saved: boolean = false
+  private _savedUrl: string = ""
 
   uploadChanged(fileInputEvent: any) {
     console.log(fileInputEvent.target.files[0]);
+    this._uploadName = fileInputEvent.target.files[0].name
     this.createImageFromBlob(fileInputEvent.target.files[0])
     this._blob = fileInputEvent.target.files[0]
     this._previewed = true
@@ -51,11 +54,20 @@ export class UploadComponent {
       let formData = new FormData();
       formData.append('images', this._blob);
       console.log(formData)
-      return this.http.post<IReturnImage>("http://localhost:8080/upload", formData)
+      // TODO fix return type!!! Look at IReturnImage
+      return this.http.post<any>("http://localhost:8080/upload", formData)
       .pipe(
         catchError(this.handleError)
       ).subscribe(response => {
-        console.log(response['creationStatus'])
+        console.log(response)
+        console.log(response['creationStatus'] )
+          let creationStatus = response['creationStatus']
+          if(creationStatus.saved = true){
+            this._saved = true
+            this._savedUrl = "http://localhost:8080/" + creationStatus[this._uploadName].image.imagePath
+          }
+        
+       
         
 
       });
@@ -81,5 +93,10 @@ export class UploadComponent {
   get upload(): any {
     return this._upload
   }
-
+  get saved(): boolean{
+    return this._saved
+  }
+  get savedUrl(): string{
+    return this._savedUrl
+  }
 }

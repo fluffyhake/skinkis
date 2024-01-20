@@ -3,7 +3,7 @@
 
 
 <div class="main-div">
-    <mat-card class="card" >
+    <mat-card class="card" *ngIf="!saved" >
         <mat-card-header>
           <mat-card-title>FLAKSE PHOTO SERVICE</mat-card-title>
           <mat-card-subtitle>.jpg, .jpeg, .png</mat-card-subtitle>
@@ -25,5 +25,22 @@
             <button mat-button *ngIf="upload" (click)="saveUpload()">Save</button>
         </mat-card-actions>
       </mat-card>
-      
+
+      <mat-card class="card" *ngIf="saved" >
+        <mat-card-header>
+          <mat-card-title>FLAKSE PHOTO SERVICE</mat-card-title>
+          <mat-card-subtitle>SAVED!</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image>
+        <mat-card-content>
+        <h3>Link for photo :3</h3>
+        
+        <a [href]="savedUrl">link</a>
+
+   
+
+        </mat-card-content>
+        <mat-card-actions>
+        </mat-card-actions>
+      </mat-card>
 </div>
