@@ -1,1 +1,9 @@
-<p>gallery works!</p>
+<mat-progress-bar *ngIf="isLoading"></mat-progress-bar>
+
+
+<div class="image-grid">
+    <div *ngFor="let imageLink of imageArr" class="image-item">
+      <img [src]="imageLink" alt="Image">
+    </div>
+  </div>
+  
