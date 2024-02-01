@@ -2,9 +2,9 @@
   "name": "skinkis-backend",
   "version": "0.0.1",
   "description": "Flakse presenterer SKINKIS",
-  "main": "index.js",
+  "main": "./dist/app.js",
   "scripts": {
-    "dev": "ts-node app.ts",
+    "dev": "ts-node ./src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
