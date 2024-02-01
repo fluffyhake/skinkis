@@ -45,3 +45,21 @@ export async function saveImageToDB(files: Express.Multer.File[]): Promise<IRetu
     throw new Error('Error fetching image');
   }
 }
+
+export async function getAllImgesFromDB(): Promise<IImage[]> {
+  try {
+    let list: IImage[] = new Array
+    const images: IImage[] = await imagesModel.find();
+    console.log(images)
+    if (!images) {
+    }else{
+      list = images
+      }
+      return list
+    }
+  catch (error) {
+    console.log(error)
+    throw new Error('Error fetching image');
+  }
+}
+
