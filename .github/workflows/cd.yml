@@ -43,5 +43,8 @@ jobs:
       run: cp -r backend/skinkis/dist/* ~/skinkis/skinkisBackend/
 
     - name: Restart PM2
-      run: pm2 restart 0
+      run: |
+        export NVM_DIR=~/.nvm
+        source ~/.nvm/nvm.sh  
+        pm2 restart 0
     
