@@ -3,6 +3,10 @@ name: CI
 on: [push]
 
 jobs:
+  lintCodebase:
+- name: Super-Linter
+  uses: super-linter/super-linter@v6.1.1
+
   buildFrontend:
 
     runs-on: self-hosted
@@ -24,9 +28,9 @@ jobs:
       run: cp -r frontend/skinkis/dist/skinkis/browser/* /var/www/skinkis/
 
   buildBackend: 
-    runs-on: Install packages and 
+    runs-on: self-hosted
     steps:
-    - name: Build backend
+    - name: Install packages and build backend
       run: |
         export NVM_DIR=~/.nvm
         source ~/.nvm/nvm.sh  
