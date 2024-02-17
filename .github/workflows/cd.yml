@@ -15,7 +15,7 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-    - name: Install frontend packages with NPM
+    - name: Install frontend packages with NPM and build Angular
       run: |
         export NVM_DIR=~/.nvm
         source ~/.nvm/nvm.sh   
@@ -23,5 +23,10 @@ jobs:
         whoami
         pwd
         npm install
-    - name: Build angular
-      run: npm run-script ng build
+        npm run-script ng build
+    
+    - name: Clean existing files from apache
+      run: rm -rf /var/www/skinkis/*
+
+    - name: Copy files to apache
+      run: cp -r dist/skinkis/browser/* /var/www/skinkis/
