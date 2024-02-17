@@ -24,4 +24,4 @@ jobs:
         pwd
         npm install
     - name: Build angular
-      run: npx ng build
+      run: npm run-script ng build
