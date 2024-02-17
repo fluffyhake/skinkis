@@ -10,7 +10,7 @@ dotenv.config()
 
 const options: cors.CorsOptions = {
   // TODO add env variables or another entry for deployed app
-  origin: ['http://localhost:4200']
+  origin: [process.env.NG_URL ? process.env.NG_URL : 'http://localhost4200']
 };
 
 const app = express()
@@ -23,7 +23,7 @@ app.use(urlencoded({extended: true}))
 connect()
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World!')
+  res.send('🐦‍⬛🐦‍⬛🐦‍⬛🐦‍⬛')
 })
 
 var dir = path.join(__dirname, '..', 'uploads');
@@ -33,5 +33,5 @@ app.use('/upload', imagesRouter)
 app.use('/uploads', express.static(dir))
 
 app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`)
+  console.log(`App listening at ${process.env.NG_URL}`)
 })
