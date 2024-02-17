@@ -9,12 +9,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
     - name: Install frontend packages with NPM and build Angular
       run: |
         export NVM_DIR=~/.nvm
@@ -31,3 +25,10 @@ jobs:
 
     - name: Copy files to apache
       run: cp -r frontend/skinkis/dist/skinkis/browser/* /var/www/skinkis/
+
+  buildBackend: 
+    runs-on: self-hosted
+    steps:
+    - name: SKinkis
+      run: pwd
+      
