@@ -18,6 +18,7 @@ jobs:
     - name: Install frontend packages with NPM
       run: |
         cd frontend/skinkis
+        whoami
         npm install
     - name: Build angular
       run: npx ng build
