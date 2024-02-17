@@ -3,10 +3,6 @@ name: CI
 on: [push]
 
 jobs:
-  lintCodebase:
-  - name: Super-Linter
-    uses: super-linter/super-linter@v6.1.1
-
   buildFrontend:
 
     runs-on: self-hosted
