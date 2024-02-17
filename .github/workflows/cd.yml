@@ -17,6 +17,8 @@ jobs:
         echo test, and deploy your project.
     - name: Install frontend packages with NPM
       run: |
+        export NVM_DIR=~/.nvm
+        source ~/.nvm/nvm.sh   
         cd frontend/skinkis
         whoami
         pwd
