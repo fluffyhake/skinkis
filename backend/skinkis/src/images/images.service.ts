@@ -18,7 +18,6 @@ export async function saveImageToDB(files: Express.Multer.File[]): Promise<IRetu
   let creationStatus: IReturnImage = {}
   for (const file of files) {
     console.log(file)
-    // TODO add support for idential originalnames =)
     const image = await imagesModel.create({
       title: file.originalname,
       filetype: file.mimetype,
