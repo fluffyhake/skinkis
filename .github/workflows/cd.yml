@@ -19,6 +19,7 @@ jobs:
       run: |
         cd frontend/skinkis
         whoami
+        pwd
         npm install
     - name: Build angular
       run: npx ng build
