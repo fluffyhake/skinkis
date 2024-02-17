@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { catchError, throwError } from 'rxjs';
 import { IReturnImage } from './upload.interfaces';
-
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-upload',
@@ -64,7 +64,7 @@ export class UploadComponent {
       console.log(formData)
       // TODO fix return type!!! Look at IReturnImage
       // TODO read http path from uri
-      return this.http.post<any>("http://localhost:8080/upload", formData)
+      return this.http.post<any>(environment.apiUrl  + "upload", formData)
       .pipe(
         catchError(this.handleError)
       ).subscribe(response => {
@@ -74,7 +74,7 @@ export class UploadComponent {
           if(creationStatus.saved = true){
             this._saved = true
             // TODO read from env! 
-            this._savedUrl = "http://localhost:8080/" + creationStatus[this._uploadName].image.imagePath
+            this._savedUrl = environment.apiUrl + creationStatus[this._uploadName].image.imagePath
           }
         
        

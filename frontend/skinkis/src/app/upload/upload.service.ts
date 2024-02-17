@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IReturnImage, IUploadData } from './upload.interfaces';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class UploadService {
   addImage(data: Blob): Observable<IReturnImage> {
         let formData = new FormData();
         formData.append('images', data);
-        return this.http.post<IReturnImage>("http://localhost:8080/api/images/upload", data)
+        return this.http.post<IReturnImage>(environment.apiUrl + "api/images/upload", data)
         .pipe(
           catchError(this.handleError)
         );

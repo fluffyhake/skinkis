@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {MatProgressBarModule} from '@angular/material/progress-bar'; 
+import { environment } from '../../environments/environment';
 
 interface AllImagesResponse{
   images: string[]
@@ -22,9 +23,9 @@ export class GalleryComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    this.http.get<AllImagesResponse>("http://localhost:8080/upload/🐦‍⬛🐦‍⬛🐦‍⬛").subscribe(response => {
+    this.http.get<AllImagesResponse>(environment.apiUrl + "upload/🐦‍⬛🐦‍⬛🐦‍⬛").subscribe(response => {
       for(let entry of response["images"]){
-        this._imageArr.push("http://localhost:8080/" + entry)
+        this._imageArr.push(environment.apiUrl + entry)
 
       }
     })
