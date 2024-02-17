@@ -14,11 +14,8 @@ jobs:
         export NVM_DIR=~/.nvm
         source ~/.nvm/nvm.sh   
         cd frontend/skinkis
-        whoami
-        pwd
         npm install
         npm run-script ng build
-        tree
     
     - name: Clean existing files from apache
       run: rm -rf /var/www/skinkis/*
@@ -27,8 +24,21 @@ jobs:
       run: cp -r frontend/skinkis/dist/skinkis/browser/* /var/www/skinkis/
 
   buildBackend: 
-    runs-on: self-hosted
+    runs-on: Install packages and 
     steps:
-    - name: SKinkis
-      run: pwd
-      
+    - name: Build backend
+      run: |
+        export NVM_DIR=~/.nvm
+        source ~/.nvm/nvm.sh  
+        cd backend/skinkis
+        npm install
+
+    - name: Delete old files in running directory
+      run: rm -rf ~/skinkis/skinkisBackend/*
+    
+    - name: Copy built files to running directory
+      run: cp backend/skinkis/dist/* ~/skinkis/skinkisBackend/
+
+    - name: Restart PM2
+      run: pm2 restart 0
+    
