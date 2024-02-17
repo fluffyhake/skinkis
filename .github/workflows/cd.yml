@@ -40,7 +40,7 @@ jobs:
       run: rm -rf ~/skinkis/skinkisBackend/*
     
     - name: Copy built files to running directory
-      run: cp backend/skinkis/dist/* ~/skinkis/skinkisBackend/
+      run: cp -r backend/skinkis/dist/* ~/skinkis/skinkisBackend/
 
     - name: Restart PM2
       run: pm2 restart 0
