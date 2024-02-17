@@ -32,6 +32,8 @@ jobs:
         source ~/.nvm/nvm.sh  
         cd backend/skinkis
         npm install
+        pwd
+        ls -lah
 
     - name: Delete old files in running directory
       run: rm -rf ~/skinkis/skinkisBackend/*
