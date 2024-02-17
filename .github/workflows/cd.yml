@@ -30,4 +30,4 @@ jobs:
       run: rm -rf /var/www/skinkis/*
 
     - name: Copy files to apache
-      run: cp -r dist/skinkis/browser/* /var/www/skinkis/
+      run: cp -r frontend/skinkis/dist/skinkis/browser/* /var/www/skinkis/
