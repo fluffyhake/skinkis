@@ -32,7 +32,7 @@ jobs:
         source ~/.nvm/nvm.sh  
         cd backend/skinkis
         npm install
-        npm run-script tsc
+        npx tsc
         pwd
         ls -lah
 
