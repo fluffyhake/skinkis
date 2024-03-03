@@ -5,7 +5,7 @@ import { IImage } from './images.model';
 
 export const saveImage = async (req: Request, res: Response, next: NextFunction) =>{
     try {
-        console.log("bingus")
+
         if(req.files){
             const files = req.files as Express.Multer.File[] ;
             console.log(req.files)
