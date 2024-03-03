@@ -36,14 +36,11 @@ export async function saveImageToDB(files: Express.Multer.File[]): Promise<IRetu
 }
 
 export async function getAllImgesFromDB(): Promise<IImage[]> {
-    let list: IImage[] = new Array
     const images: IImage[] = await imagesModel.find();
-    console.log(images)
     if (!images) {
       throw new Error("No images found in database!")
     }else{
-      list = images
+      return images
       }
-      return list
 }
 
