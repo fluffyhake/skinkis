@@ -31,7 +31,9 @@ console.log(dir)
 
 app.use('/upload', imagesRouter)
 app.use('/uploads', express.static(dir))
+// 🐦‍⬛💖🥩
+app.use('/%F0%9F%90%A6%E2%80%8D%E2%AC%9B%F0%9F%92%96%F0%9F%A5%A9', express.static(dir))
 
 app.listen(port, () => {
-  console.log(`App listening at ${process.env.NG_URL}`)
+  console.log(`App listening at ${process.env.PORT}`)
 })
