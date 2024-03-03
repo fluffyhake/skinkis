@@ -24,12 +24,14 @@ export class UploadComponent {
   private _blob: Blob = new Blob
   private _saved: boolean = false
   private _savedUrl: string = ""
+  private _savedSkinkisUrl: string = ""
 
   uploadChanged(fileInputEvent: any) {
     console.log(fileInputEvent.target.files[0]);
     this._uploadName = fileInputEvent.target.files[0].name
     this.createImageFromBlob(fileInputEvent.target.files[0])
     this._blob = fileInputEvent.target.files[0]
+    console.log(this._blob)
     this._previewed = true
     
   }
@@ -52,6 +54,7 @@ export class UploadComponent {
   goAgain(){
     this._saved = false
     this._savedUrl = ""
+    this._savedSkinkisUrl = ""
     this._previewed = false
     this._upload = undefined
     this._blob = new Blob
@@ -60,6 +63,7 @@ export class UploadComponent {
 
   saveUpload(){
       let formData = new FormData();
+      console.log(this._blob)
       formData.append('images', this._blob);
       console.log(formData)
       // TODO fix return type!!! Look at IReturnImage
@@ -75,6 +79,7 @@ export class UploadComponent {
             this._saved = true
             // TODO read from env! 
             this._savedUrl = environment.apiUrl + creationStatus[this._uploadName].image.imagePath
+            this._savedSkinkisUrl = environment.apiUrl + creationStatus[this._uploadName].image.imagePath.replace("uploads", "🐦‍⬛💖🥩")
           }
         
        
@@ -108,5 +113,8 @@ export class UploadComponent {
   }
   get savedUrl(): string{
     return this._savedUrl
+  }
+  get savedSkinkisUrl(): string{
+    return this._savedSkinkisUrl
   }
 }
