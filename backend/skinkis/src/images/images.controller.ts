@@ -1,11 +1,10 @@
-import express, { Request, Response } from 'express'
+import { NextFunction, Request, Response } from 'express'
 import { getAllImgesFromDB, saveImageToDB } from './images.service';
 import { IImage } from './images.model';
 
 
-export const saveImage = async (req: Request, res: Response) =>{
+export const saveImage = async (req: Request, res: Response, next: NextFunction) =>{
     try {
-        // console.log(req)
         if(req.files){
             const files = req.files as Express.Multer.File[] ;
             console.log(req.files)
@@ -16,20 +15,20 @@ export const saveImage = async (req: Request, res: Response) =>{
         }else throw new Error ("No specified file from multer!")
     } catch (error) {
         console.log(error)
-        return res.status(500).json({ error: 'Internal Server Error' });
+        next(error)
     }
 }
 
 
-export const getImage = async (req: Request, res: Response) =>{
+export const getImage = async (req: Request, res: Response, next: NextFunction) =>{
     try {
         // Get a specific image here
     } catch (error) {
-        return res.status(500).json({ error: 'Internal Server Error' });
+        next(error)
     }
 }
 
-export const getAllImages = async(req: Request, res: Response) => {
+export const getAllImages = async(req: Request, res: Response, next: NextFunction) => {
     try {
         console.log(req)
         console.log("skinkis")
@@ -43,6 +42,6 @@ export const getAllImages = async(req: Request, res: Response) => {
         return res.status(200).json({images: imagesArray})
 
     } catch (error) {
-        return res.status(500).json({ error: "bingus🤣🤣🤣🤣🤣🤣"})
+        next(error)
     }
 }
