@@ -23,9 +23,9 @@ export class GalleryComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    this.http.get<AllImagesResponse>(environment.apiUrl + "upload/🐦‍⬛🐦‍⬛🐦‍⬛").subscribe(response => {
+    this.http.get<AllImagesResponse>(environment.apiUrl + "/upload/🐦‍⬛🐦‍⬛🐦‍⬛").subscribe(response => {
       for(let entry of response["images"]){
-        this._imageArr.push(environment.apiUrl + entry)
+        this._imageArr.push(environment.apiUrl + "/" + entry)
 
       }
     })
