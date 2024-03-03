@@ -36,15 +36,20 @@ jobs:
         pwd
         ls -lah
 
+    - name: Save .env!
+      run: cp ~/skinkis/skinkisBackend/.env ~/skinkis/
+
     - name: Delete old files in running directory
       run: rm -rf ~/skinkis/skinkisBackend/*
     
     - name: Copy built files to running directory
-      run: cp -r backend/skinkis/* ~/skinkis/skinkisBackend/
+      run: cp -r backend/skinkis/* 
+
+    - name: Save .env part 2!
+      run: cp ~/skinkis/.env  ~/skinkis/skinkisBackend/
 
     - name: Restart PM2
       run: |
         export NVM_DIR=~/.nvm
         source ~/.nvm/nvm.sh  
         pm2 restart 0
-    ø
