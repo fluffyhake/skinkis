@@ -10,7 +10,7 @@ dotenv.config()
 
 const options: cors.CorsOptions = {
   // TODO add env variables or another entry for deployed app
-  origin: "*"
+  origin: [process.env.NG_URL ? process.env.NG_URL : 'http://localhost4200']
 };
 
 const app = express()
