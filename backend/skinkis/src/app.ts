@@ -26,7 +26,7 @@ app.get('/', (req: Request, res: Response) => {
   res.send('🐦‍⬛🐦‍⬛🐦‍⬛🐦‍⬛')
 })
 
-var dir = path.join(__dirname, '..', 'uploads');
+var dir = path.join(__dirname, '../..', 'uploads');
 console.log(dir)
 
 app.use('/upload', imagesRouter)
