@@ -1,20 +1,15 @@
 import {imagesModel, IImage, IReturnImage} from "./images.model";
 
 export async function getImageById(imageId: string) {
-  try {
     const image = await imagesModel.findById(imageId);
     if (!image) {
       throw new Error('User not found');
     }
     return image;
-  } catch (error) {
-    throw new Error('Error fetching image');
-  }
 }
 
 
 export async function saveImageToDB(files: Express.Multer.File[]): Promise<IReturnImage> {
-  try {
   let creationStatus: IReturnImage = {}
   for (const file of files) {
     console.log(file)
@@ -38,27 +33,17 @@ export async function saveImageToDB(files: Express.Multer.File[]): Promise<IRetu
     }
   }
   return creationStatus
-    
-  } catch (error) {
-    console.log(error)
-    throw new Error('Error fetching image');
-  }
 }
 
 export async function getAllImgesFromDB(): Promise<IImage[]> {
-  try {
     let list: IImage[] = new Array
     const images: IImage[] = await imagesModel.find();
     console.log(images)
     if (!images) {
+      throw new Error("No images found in database!")
     }else{
       list = images
       }
       return list
-    }
-  catch (error) {
-    console.log(error)
-    throw new Error('Error fetching image');
-  }
 }
 
