@@ -43,7 +43,7 @@ jobs:
       run: rm -rf ~/skinkis/skinkisBackend/*
     
     - name: Copy built files to running directory
-      run: cp -r backend/skinkis/* ~/skinkis/skinkisBackend/*
+      run: cp -r backend/skinkis/* ~/skinkis/skinkisBackend/
 
     - name: Save .env part 2!
       run: cp ~/skinkis/.env  ~/skinkis/skinkisBackend/
