@@ -10,7 +10,7 @@ dotenv.config()
 
 const options: cors.CorsOptions = {
   // TODO add env variables or another entry for deployed app
-  origin: "http://10.0.66.69"
+  origin: "*"
 };
 
 const app = express()
