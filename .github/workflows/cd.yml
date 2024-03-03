@@ -38,12 +38,9 @@ jobs:
 
     - name: Delete old files in running directory
       run: rm -rf ~/skinkis/skinkisBackend/*
-
-    - name: Copy node modules
-      run: cp -r backend/skinkis/node_modules/ backend/skinkis/dist/
     
     - name: Copy built files to running directory
-      run: cp -r backend/skinkis/dist/ ~/skinkis/skinkisBackend/
+      run: cp -r backend/skinkis/* ~/skinkis/skinkisBackend/
 
     - name: Restart PM2
       run: |
